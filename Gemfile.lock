@@ -1,0 +1,57 @@
+PATH
+  remote: .
+  specs:
+    dietologist (0.1.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.3)
+    diff-lcs (1.4.4)
+    dotenv (2.7.6)
+    json (2.3.1)
+    method_source (1.0.0)
+    mini_portile2 (2.4.0)
+    net-http (0.1.0)
+    nokogiri (1.10.10)
+      mini_portile2 (~> 2.4.0)
+    openssl (2.2.0)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    rake (10.5.0)
+    require_all (3.0.0)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.0)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.0)
+    uri (0.10.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler
+  dietologist!
+  dotenv
+  json
+  net-http
+  nokogiri
+  openssl
+  pry
+  rake (~> 10.0)
+  require_all
+  rspec
+  uri
+
+BUNDLED WITH
+   2.1.4
