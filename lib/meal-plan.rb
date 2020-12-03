@@ -22,7 +22,8 @@ class MealPlan
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
         request = Net::HTTP::Get.new(url)
-        request["x-rapidapi-key"] = ENV["X_RAPIDAPI_KEY"]
+        request["x-rapidapi-key"] = ENV["X_RAPIDAPI_KEY"] #to obtain API key click on the link below
+        #https://rapidapi.com/spoonacular/api/recipe-food-nutrition/endpoints 
         request["x-rapidapi-host"] = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
 
         response = http.request(request)
