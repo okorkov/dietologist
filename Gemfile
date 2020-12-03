@@ -9,4 +9,4 @@ gem 'openssl'
 gem 'net-http'
 gem 'require_all'
 gem 'dotenv'
-gem 'dietologist'
+
