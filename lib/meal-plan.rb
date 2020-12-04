@@ -1,5 +1,7 @@
 class MealPlan
 
+    extend Concerns::ClassMethods
+
     attr_reader :meal_hash
 
     @@all = []
@@ -30,7 +32,5 @@ class MealPlan
         @meal_hash = JSON.parse(response.body)
         @meal_hash
     end
-
-    
 
 end

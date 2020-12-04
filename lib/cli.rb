@@ -5,8 +5,7 @@ class Dietologist::CLI
     attr_reader :meal_hash
    
     include Concerns::InstanceMethods
-    extend Concerns::ClassMethods
-
+    
     def initialize
         @processor = Processor.new
     end

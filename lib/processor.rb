@@ -12,7 +12,7 @@ class Processor
     def time_frame
         puts "           ♦♦ What is a time frame for your diet? ♦♦          "
         puts "                 ♦♦ 1. Day       2. Week ♦♦       [1/2]       "
-        time_frame = gets.chomp
+        time_frame = gets.chomp.downcase
         if time_frame == '1'
             DATA[:time_frame] = 'day'
         elsif time_frame == '2'
@@ -26,14 +26,14 @@ class Processor
     def target_calories
         if DATA[:time_frame] == 'day'
             puts "♦♦ What is your daily target calories, please type in [500-3000] ♦♦"
-            target_calories = gets.chomp
+            target_calories = gets.chomp.downcase
             self.target_calories if target_calories.to_i > 3000 || target_calories.to_i < 500
             DATA[:target_calories] = target_calories.to_i
         end
 
         if DATA[:time_frame] == 'week'
             puts "♦♦ What is your weekly target calories, please type in [3000-21000] ♦♦"
-            target_calories = gets.chomp
+            target_calories = gets.chomp.downcase
             self.target_calories if target_calories.to_i > 21000 || target_calories.to_i < 3000
             DATA[:target_calories] = target_calories.to_i
         end
@@ -43,9 +43,9 @@ class Processor
     def diet
         puts "                         ♦♦ Do you have a diet preference? ♦♦                         "
         puts "♦♦ 1. none  2. vegeterian  3. pescaterian  4. vegan  [type in if other than listed] ♦♦"
-        diet = gets.chomp 
+        diet = gets.chomp.downcase
         if diet == '1'
-            DATA[:diet] = 'none'
+            DATA[:diet] = ''
         elsif diet == '2'
             DATA[:diet] = 'vegeterian'
         elsif diet == '3'
@@ -60,7 +60,7 @@ class Processor
     def exclude
         puts "♦♦ Are you allergic to anything or there is a certain items you would like us to exclude? ♦♦"
         puts "                      ♦♦ Please list those items or type in 'none' ♦♦                     "
-        exclude_input = gets.chomp
+        exclude_input = gets.chomp.downcase
         exclude_input = exclude_input.split(' ')
         DATA[:exclude] = exclude_input
     end

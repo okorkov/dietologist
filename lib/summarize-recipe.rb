@@ -1,5 +1,7 @@
 class SummarizeRecipe
 
+    extend Concerns::ClassMethods
+
     attr_reader :recipe_summury
 
     @@all = []
