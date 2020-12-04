@@ -13,13 +13,16 @@ module Concerns
         meal_position += 1
       end
       puts "♦♦♦ Which recipe you would like to find out more about? enter a number [1-#{hash['meals'].size}] or type in 'exit' ♦♦♦"
+      choose_recipe = nil
       choose_recipe = gets.chomp.downcase
-      meal_index = choose_recipe.to_i - 1
-      if choose_recipe != 'exit'&& hash['meals'][meal_index] != nil
+      meal_index = choose_recipe.to_i - 1 
+      if choose_recipe != 'exit' && hash['meals'][meal_index] != nil
         id = hash['meals'][meal_index]['id']
         meal_details(id)
-      else
+      elsif choose_recipe == 'exit'
         puts "♦♦♦♦♦♦♦♦♦      Goodbye       ♦♦♦♦♦♦♦♦♦"
+      else 
+        self.meals_info_day(hash)
       end
 
     end
@@ -34,14 +37,17 @@ module Concerns
         counter += 1
       end
       puts "♦♦♦ Which recipe you would like to find out more about? enter a number [1-#{hash['items'].size}] or type in 'exit' ♦♦♦"
+      choose_recipe = nil
       choose_recipe = gets.chomp.downcase
       meal_index = choose_recipe.to_i - 1
       if choose_recipe != 'exit' && hash['items'][meal_index] != nil
         id_splitter = hash['items'][meal_index]['value'].split(/[:,"]/)
         id = id_splitter[3]
         meal_details(id)
-      else
+      elsif choose_recipe == 'exit'
         puts "♦♦♦♦♦♦♦♦♦      Goodbye       ♦♦♦♦♦♦♦♦♦"
+      else 
+        self.meals_info_week(hash)
       end
     end
 
@@ -53,14 +59,25 @@ module Concerns
       puts recipe_info_hash['summary']
       puts ""
       puts "♦♦♦ Press 1 to go back, or press 2 to exit ♦♦♦"
+      option = nil
       option = gets.chomp.downcase
       if Processor::DATA[:time_frame] == 'day'
-        meals_info_day(self.meal_hash) if option == '1'
-        puts "♦♦♦♦♦♦♦♦♦      Goodbye       ♦♦♦♦♦♦♦♦♦" if option == '2'
+        if option == '1'
+          meals_info_day(self.meal_hash)
+        elsif option == '2'
+          puts "♦♦♦♦♦♦♦♦♦      Goodbye       ♦♦♦♦♦♦♦♦♦" 
+        else
+          self.meal_details(id)
+        end
       end
       if Processor::DATA[:time_frame] == 'week'
-        meals_info_week(self.meal_hash) if option == '1'
-        puts "♦♦♦♦♦♦♦♦♦      Goodbye       ♦♦♦♦♦♦♦♦♦" if option == '2'
+        if option == '1'
+          meals_info_week(self.meal_hash)
+        elsif option == '2'
+          puts "♦♦♦♦♦♦♦♦♦      Goodbye       ♦♦♦♦♦♦♦♦♦" 
+        else
+          self.meal_details(id)
+        end
       end
     end
 
