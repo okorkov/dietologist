@@ -29,7 +29,10 @@ class SummarizeRecipe
   	@recipe_summury["summary"].gsub!('<b>', '') 
   	@recipe_summury["summary"].gsub!('</b>', '')
   	@recipe_summury["summary"].gsub!('<a href=', '')
-  	@recipe_summury["summary"].gsub!('</a>', '')
+		@recipe_summury["summary"].gsub!('</a>', '')
+		@recipe_summury["summary"].gsub!('"', '')
+		@recipe_summury["summary"].gsub!('">', ' - ')
+		@recipe_summury["summary"].gsub!('>', ' - ')
   	@recipe_summury
   end
 

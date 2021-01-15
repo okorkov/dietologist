@@ -43,13 +43,14 @@ class Processor
     puts "                         ♦♦ Do you have a diet preference? ♦♦                         "
     puts "♦♦ 1. none  2. vegeterian  3. pescaterian  4. vegan  [type in if other than listed] ♦♦"
     diet = gets.chomp.downcase
-    if diet == '1'
+    case diet
+    when '1'
       DATA[:diet] = ''
-    elsif diet == '2'
+    when '2'
       DATA[:diet] = 'vegeterian'
-    elsif diet == '3'
+    when '3'
       DATA[:diet] = 'pescaterian'
-    elsif diet == '4'
+    when '4'
       DATA[:diet] = 'vegan'
     else
       DATA[:diet] = diet.split(' ').join('')
